@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="faq" class="faq">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Login</h2>
+        </div>
+
+        <div class="faq-list">
+              <div id="faq-list-1" class="show">
+
+                <div class="d-flex justify-content-center">
+                    <form class="bg-light p-5 mt-5" method="POST">
+                        {{ form.hidden_tag() }}
+
+                        <div class="form-group pb-3">
+                          {{form.username.label}}
+                        {% if form.username.errors %}
+                        {{form.username(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                          {% for error in form.username.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{form.username(class="form-control")}}
+                        {% endif %}
+                      </div>
+
+                      <div class="form-group pb-3">
+                          {{form.password.label}}
+                        {% if form.password.errors %}
+                        {{form.password(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                          {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{form.password(class="form-control")}}
+                        {% endif %}
+
+                      </div>
+
+                          {{form.submit(class="btn btn-primary btn-block")}}
+
+                    </form>
+                </div>
+              </div>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+{% endblock content %}

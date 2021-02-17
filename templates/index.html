@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="index.html">CryptoVision</a></h1>
+<!--       Uncomment below if you prefer to use an image logo-->
+<!--       <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home<i class='bx bxs-home' ></i></a></li>
+          <li><a class="nav-link scrollto" href="#about">About<i class='bx bx-info-circle' ></i></a></li>
+          <li><a class="nav-link scrollto" href="{{url_for('feed')}}">Vise Wall<i class='bx bxs-dollar-circle'></i></a></li>
+            {% if current_user.is_authenticated %}
+              <li class="dropdown"><a href="#"><span>Account</span> <i class="bi bi-chevron-down"></i></a>
+                <ul>
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">Drop Down 2</a></li>
+                  <li><a href="#">Drop Down 3</a></li>
+                  <li><a href="{{url_for('logout')}}">Logout</a></li>
+                </ul>
+              </li>
+            {% endif %}
+          <li><a class="nav-link scrollto" href="{{url_for('leaderboard')}}">LEADERBOARD<i class='bx bxs-bar-chart-alt-2'></i></a></li>
+          <li><a class="getstarted scrollto" href="{{url_for('feed')}}">Feed<i class='bx bx-bitcoin'></i></a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-6 pt-3 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>We can see it better together</h1>
+          <h2>Predict crypto price movement with precision and become the #1 visionary</h2>
+            {% if not current_user.is_authenticated %}
+                <div><a href="{{url_for('register')}}" class="btn-get-started scrollto">Register</a> <a href="{{url_for('login')}}" class="btn-get-started scrollto">Login</a></div>
+            {% else %}
+                <div><a href="{{url_for('feed')}}" class="btn-get-started scrollto">Show Feed<i class='bx bx-bitcoin'></i></a></div>
+            {% endif %}
+        </div>
+        <div class="col-xl-4 col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="150">
+          <img src="{{ url_for('static', filename='img/hero-img.png') }}" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+ <!-- ======= Frequently Asked Questions Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Share your vision</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up" data-aos-delay="100">
+                   {% if current_user.is_authenticated %}
+                   <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Submitting might currently take few seconds due to limited free API. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                   {% else %}
+                   <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Please Register or Login to share your visions. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                   {% endif%}
+              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                  {% if current_user.is_authenticated %}
+                  {% include "_new_post.html" %}
+                  {% else %}
+                  {% include "_new_post_not_registered.html" %}
+                  {% endif%}
+
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Top users visions</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+
+        <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+
+
+
+            <div class="swiper-slide top-predict"><!-- start testimonial item -->
+                <div class="icon-box iconbox-blue">
+                    <div class="row mb-5 border-bottom">
+                      <p style="text-align:left;">
+                              BTC/USD
+                          <span style="float:right;">
+                              danielson
+                          </span>
+                      </p>
+                    </div>
+                    <h5 class="text-center">48,600 - 50,000</h5>
+                    <div class="progress mt-3" style="height: 20px;">
+                      <div class="progress-bar" role="progressbar" style="width: 76%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">1,400 left</div>
+                    </div>
+                    <div class="progress mt-3" style="height: 20px;">
+                      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25% confidence</div>
+                    </div>
+                  <h4 class="text-success text-center mt-3">96%</h4>
+                  <p>Voluptatum delet quas molestias excepturi</p>
+                  <div class="row mt-3 border-top pt-3">
+                      <p style="text-align:left;">
+                          15 <i class='bx bxs-star'></i>
+                          <span style="float:right;">
+                             5 mins ago
+                          </span>
+                      </p>
+                    </div>
+                </div>
+            </div><!-- End testimonial item -->
+
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+{% endblock content%}
+

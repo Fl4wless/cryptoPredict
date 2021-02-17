@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>CryptoVision - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!-- Favicons -->
+  <link href="{{ url_for('static', filename='img/favicon.png') }}" rel="icon">
+  <link href="{{ url_for('static', filename='img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/aos/aos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap-icons/bootstrap-icons.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/boxicons/css/boxicons.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/glightbox/css/glightbox.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.css') }}">
+
+  <!-- Template Main CSS File -->
+  <link href="{{url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
+</head>
+
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category,message in messages %}
+          <div class="alert alert-{{ category }} m-0">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+
+      {% block content%}
+
+      {% endblock content%}
+
+  <footer id="footer">
+
+
+    <div class="container">
+
+      <div class="copyright-wrap d-md-flex py-4">
+        <div class="me-md-auto text-center text-md-start">
+<!--          <div class="copyright">-->
+<!--            &copy; Copyright <strong><span>Techie</span></strong>. All Rights Reserved-->
+<!--          </div>-->
+<!--          <div class="credits">-->
+<!--            &lt;!&ndash; All the links in the footer should remain intact. &ndash;&gt;-->
+<!--            &lt;!&ndash; You can delete the links only if you purchased the pro version. &ndash;&gt;-->
+<!--            &lt;!&ndash; Licensing information: https://bootstrapmade.com/license/ &ndash;&gt;-->
+<!--            &lt;!&ndash; Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/techie-free-skin-bootstrap-3/ &ndash;&gt;-->
+<!--            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>-->
+<!--          </div>-->
+        </div>
+        <div class="social-links text-center text-md-right pt-3 pt-md-0">
+          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{{ url_for('static', filename='vendor/aos/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/glightbox/js/glightbox.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/php-email-form/validate.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/purecounter/purecounter.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/swiper/swiper-bundle.min.js') }}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>
